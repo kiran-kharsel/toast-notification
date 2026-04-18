@@ -1,5 +1,6 @@
 
 import './App.css'
+import ToastNotification from './toast-notification/ToastNotification'
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       
-      
+      <ToastNotification/>
     </>
   )
 }
