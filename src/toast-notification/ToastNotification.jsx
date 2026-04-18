@@ -7,7 +7,8 @@ function ToastNotification() {
         <button className='toast-close'>&times;</button>
         <div className="toast-content">
             <div className="toast-info">
-                <img src="" alt="" />
+                {/* <img src="" alt="" /> */}
+                <span className='info-icon'>ℹ️</span>
                 <div className="toast-title-desc">
                     <span>title</span>
                     <span>desc</span>
