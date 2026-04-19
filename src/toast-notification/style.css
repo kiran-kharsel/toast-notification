@@ -44,8 +44,9 @@
     width: 100%;
 }
 
-.info-icon{
-    width: 30px;
+.toast-cta{
+    max-height: 100px;
+    max-width: 100px;
 }
 
 .toast-title-desc{

@@ -11,7 +11,7 @@ function ToastNotification() {
         <button className='toast-close'>&times;</button>
         <div className="toast-content">
             <div className="toast-info">
-                <img className='info-icon' src={infoIcon} alt="" />
+                <img className='info-icon' height={'24px'} width={'24px'} src={infoIcon} alt="" />
                 <div className="toast-title-desc">
                     <span>title</span>
                     <span>desc</span>
