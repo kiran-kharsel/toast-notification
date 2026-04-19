@@ -5,6 +5,13 @@ import infoIcon from '../assets/information.png'
 import successIcon from '../assets/success.png'
 import warningIcon from '../assets/warning.png'
 
+
+const NotificationTypes = {
+    info: infoIcon,
+    danger: warningIcon,
+    success: successIcon,
+}
+
 function ToastNotification(props) {
     const {id = '',title='', desc='', onRemove = ()=>{}, cta ='', type = 'info'} = props;
 
@@ -18,7 +25,7 @@ function ToastNotification(props) {
         <button onClick={handleRemove} className='toast-close'>&times;</button>
         <div className="toast-content">
             <div className="toast-info">
-                <img className='info-icon' height={'24px'} width={'24px'} src={infoIcon} alt="" />
+                <img className='info-icon' height={'24px'} width={'24px'} src={NotificationTypes[type]} alt="" />
                 <div className="toast-title-desc">
                     <span>{title}</span>
                     <span>{desc}</span>
