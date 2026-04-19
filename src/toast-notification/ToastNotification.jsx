@@ -1,14 +1,17 @@
 import React from 'react'
 import './style.css'
 
+import infoIcon from '../assets/information.png'
+import successIcon from '../assets/success.png'
+import warningIcon from '../assets/warning.png'
+
 function ToastNotification() {
   return (
     <div className='toast'>
         <button className='toast-close'>&times;</button>
         <div className="toast-content">
             <div className="toast-info">
-                {/* <img src="" alt="" /> */}
-                <span className='info-icon'>ℹ️</span>
+                <img className='info-icon' src={infoIcon} alt="" />
                 <div className="toast-title-desc">
                     <span>title</span>
                     <span>desc</span>
