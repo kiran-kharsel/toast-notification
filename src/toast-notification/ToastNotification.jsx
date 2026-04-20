@@ -21,7 +21,7 @@ function ToastNotification(props) {
     }
 
   return (
-    <div className='toast'>
+    <div data-types={type} className='toast'>
         {!!onRemove && <button onClick={handleRemove} className='toast-close'>&times;</button>}
         <div className="toast-content">
             <div className="toast-info">

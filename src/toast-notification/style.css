@@ -11,10 +11,23 @@
 .toast{
     width: 350px;
     border-radius: 6px;
-    border: 2px solid var(--info);
-    background-color: var(--info-bg);
     padding: 20px;
     position: relative;
+}
+
+.toast[data-types='info']{
+    border: 2px solid var(--info);
+    background-color: var(--info-bg);
+}
+
+.toast[data-types='danger']{
+    border: 2px solid var(--danger);
+    background-color: var(--danger-bg);
+}
+
+.toast[data-types='success']{
+    border: 2px solid var(--success);
+    background-color: var(--success-bg);
 }
 
 .toast-close{
