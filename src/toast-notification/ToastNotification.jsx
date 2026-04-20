@@ -13,7 +13,7 @@ const NotificationTypes = {
 }
 
 function ToastNotification(props) {
-    const {id = '',title='', desc='', onRemove = ()=>{}, cta ='', type = 'info'} = props;
+    const {id = '',title='', desc='', onRemove, cta ='', type = 'info'} = props;
 
 
     function handleRemove(){
@@ -22,16 +22,16 @@ function ToastNotification(props) {
 
   return (
     <div className='toast'>
-        <button onClick={handleRemove} className='toast-close'>&times;</button>
+        {!!onRemove && <button onClick={handleRemove} className='toast-close'>&times;</button>}
         <div className="toast-content">
             <div className="toast-info">
                 <img className='info-icon' height={'24px'} width={'24px'} src={NotificationTypes[type]} alt="" />
                 <div className="toast-title-desc">
                     <span>{title}</span>
-                    <span>{desc}</span>
+                    {!!desc && <span>{desc}</span>}
                 </div>
             </div>
-            <div className="toast-cta">{cta}</div>
+            {!!cta && <div className="toast-cta">{cta}</div>}
         </div>
         <div className="toast-progress"></div>
     </div>
