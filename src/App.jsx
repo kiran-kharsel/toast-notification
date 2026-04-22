@@ -1,19 +1,21 @@
 
 import { useState } from 'react'
 import './App.css'
-import ToastNotification from './toast-notification/ToastNotification'
+import {useNotification} from './toast-notification/ToastProvider'
 
 function App() {
   const [showToast, setShowToast] = useState(false)
 
+  const addNotification = useNotification()
+
   function handleClick(){
-    setShowToast(!showToast)
+    //setShowToast(!showToast)
+    addNotification({title:'first notification'})
   }
 
   return (
     <>
       <button onClick={handleClick}>show notification</button>
-      {showToast && <ToastNotification title='testing'/>}
     </>
   )
 }
