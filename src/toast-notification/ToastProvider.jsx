@@ -6,13 +6,13 @@ const ToastContext = createContext({})
 
 
 export const useNotification = ()=> {
-    useContext(ToastContext)
+    return useContext(ToastContext)
 }
 
-function toastProvider({children}){
+function ToastProvider({children}){
     const [toasts, setToasts] = useState([]);
 
-    const addNotification = useCallback((title, desc, type, cta, poition)=>{
+    const addNotification = useCallback(({title, desc, type, cta, poition})=>{
         const obj = {title, desc, type, cta, poition}
 
         const id = Date.now()
@@ -25,9 +25,9 @@ function toastProvider({children}){
     return(
         <ToastContext.Provider value={addNotification}>
             {children}
-            <ToastContainer/>
+            <ToastContainer toasts={toasts}/>
         </ToastContext.Provider>
     )
 }
 
-export default toastProvider;
+export default ToastProvider;
