@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useState } from "react";
+import ToastContainer from "./toast-container/ToastContainer";
 
 
 const ToastContext = createContext({})
@@ -22,7 +23,10 @@ function toastProvider({children}){
     }, []);
 
     return(
-        <ToastContext.Provider value={addNotification}>{children}</ToastContext.Provider>
+        <ToastContext.Provider value={addNotification}>
+            {children}
+            <ToastContainer/>
+        </ToastContext.Provider>
     )
 }
 
