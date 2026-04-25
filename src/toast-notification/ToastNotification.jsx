@@ -17,7 +17,6 @@ function ToastNotification(props) {
 
 
     function handleRemove(){
-        //onRemove(id)
         updateToast(id)
     }
 
@@ -26,8 +25,12 @@ function ToastNotification(props) {
         className += ' exiting-toast'
     }
 
+    function handleOnAnimationEnd(){
+        onRemove(id)
+    }
+
   return (
-    <div data-types={type}  className={className}>
+    <div data-types={type}  className={className} onAnimationEnd={handleOnAnimationEnd}>
         {!!onRemove && <button onClick={handleRemove} className='toast-close'>&times;</button>}
         <div className="toast-content">
             <div className="toast-info">
