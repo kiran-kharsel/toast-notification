@@ -2,8 +2,11 @@ import React from 'react'
 import ToastNotification from '../ToastNotification'
 
 function ToastContainer({toasts = []}) {
+
+  const position = toasts?.[0]?.position || 'top-right'
+
   return (
-    <div>
+    <div data-position={position} className='toast-container'>
         {
             toasts.map((toast) => {
                 return <ToastNotification {...toast} key={toast.id} />

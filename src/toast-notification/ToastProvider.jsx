@@ -12,8 +12,8 @@ export const useNotification = ()=> {
 function ToastProvider({children}){
     const [toasts, setToasts] = useState([]);
 
-    const addNotification = useCallback(({title, desc, type, cta, poition})=>{
-        const obj = {title, desc, type, cta, poition}
+    const addNotification = useCallback(({title, desc, type, cta, position})=>{
+        const obj = {title, desc, type, cta, position}
 
         const id = Date.now()
 
