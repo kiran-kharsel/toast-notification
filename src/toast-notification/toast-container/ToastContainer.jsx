@@ -1,7 +1,7 @@
 import React from 'react'
 import ToastNotification from '../ToastNotification'
 
-function ToastContainer({toasts = []}) {
+function ToastContainer({toasts = [], onRemove}) {
 
   const position = toasts?.[0]?.position || 'top-right'
 
@@ -9,7 +9,7 @@ function ToastContainer({toasts = []}) {
     <div data-position={position} className='toast-container'>
         {
             toasts.map((toast) => {
-                return <ToastNotification {...toast} key={toast.id} />
+                return <ToastNotification onRemove={onRemove} {...toast} key={toast.id} />
             })
         }
     </div>

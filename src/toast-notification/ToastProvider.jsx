@@ -12,6 +12,12 @@ export const useNotification = ()=> {
 function ToastProvider({children}){
     const [toasts, setToasts] = useState([]);
 
+    const onRemove = (id) => {
+        setToasts(prev => {
+            return prev.filter((item) => item.id != id)
+        })
+    }
+
     const addNotification = useCallback(({title, desc, type, cta, position})=>{
         const obj = {title, desc, type, cta, position}
 
@@ -25,7 +31,7 @@ function ToastProvider({children}){
     return(
         <ToastContext.Provider value={addNotification}>
             {children}
-            <ToastContainer toasts={toasts}/>
+            <ToastContainer toasts={toasts} onRemove={onRemove}/>
         </ToastContext.Provider>
     )
 }
