@@ -13,15 +13,21 @@ const NotificationTypes = {
 }
 
 function ToastNotification(props) {
-    const {id = '',title='', desc='', onRemove, cta ='', type = 'info', position='top-right'} = props;
+    const {id = '',title='', desc='', onRemove, cta ='', type = 'info', position='top-right', exiting,updateToast = ()=>{}} = props;
 
 
     function handleRemove(){
-        onRemove(id)
+        //onRemove(id)
+        updateToast(id)
+    }
+
+    let className = 'toast';
+    if(exiting){
+        className += ' exiting-toast'
     }
 
   return (
-    <div data-types={type}  className='toast'>
+    <div data-types={type}  className={className}>
         {!!onRemove && <button onClick={handleRemove} className='toast-close'>&times;</button>}
         <div className="toast-content">
             <div className="toast-info">

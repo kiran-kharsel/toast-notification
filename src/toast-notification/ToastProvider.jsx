@@ -18,6 +18,15 @@ function ToastProvider({children}){
         })
     }
 
+    const updateToast = (id) => {
+        setToasts(prev => {
+            return prev.map((toast) =>{
+                toast.exiting = toast.id === id;
+                return toast
+            })
+        })
+    }
+
     const addNotification = useCallback(({title, desc, type, cta, position})=>{
         const obj = {title, desc, type, cta, position}
 
@@ -31,7 +40,7 @@ function ToastProvider({children}){
     return(
         <ToastContext.Provider value={addNotification}>
             {children}
-            <ToastContainer toasts={toasts} onRemove={onRemove}/>
+            <ToastContainer toasts={toasts} onRemove={onRemove} updateToast={updateToast}/>
         </ToastContext.Provider>
     )
 }
