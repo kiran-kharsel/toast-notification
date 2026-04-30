@@ -1,5 +1,6 @@
-import { createContext, useCallback, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import ToastContainer from "./toast-container/ToastContainer";
+import toastService from "./ToastService";
 
 
 const ToastContext = createContext({})
@@ -11,6 +12,11 @@ export const useNotification = ()=> {
 
 function ToastProvider({children}){
     const [toasts, setToasts] = useState([]);
+
+
+    useEffect(()=>{
+        toastService.registerNotification(addNotification)
+    }, [])
 
     const onRemove = (id) => {
         setToasts(prev => {
