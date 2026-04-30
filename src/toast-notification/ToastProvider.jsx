@@ -22,7 +22,7 @@ function ToastProvider({children}){
     useEffect(()=>{
         const id = setInterval(()=>{
             setToasts((prev)=>{
-                return prev.map((toast) => {
+                const updated = prev.map((toast) => {
                     const currentProgress = toast.progress // 100
                     const currentDuration = toast.duration // 5000
                     const hundredthPart = currentDuration / 100; // 50
@@ -36,6 +36,13 @@ function ToastProvider({children}){
 
                     return {...toast, progress: currentProgress - percentToReduce};
                 }).filter(Boolean)
+
+                // if no toasts left, clear interval
+                if(updated.length === 0){
+                    clearInterval(id)
+                };
+
+                return updated;
             })
 
         }, 100)
@@ -43,7 +50,7 @@ function ToastProvider({children}){
         return ()=>{
             return clearInterval(id)
         }
-    }, [])
+    }, [toasts.length])
 
     const onRemove = (id) => {
         setToasts(prev => {
