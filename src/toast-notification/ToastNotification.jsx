@@ -13,7 +13,17 @@ const NotificationTypes = {
 }
 
 function ToastNotification(props) {
-    const {id = '',title='', desc='', onRemove, cta ='', type = 'info', position='top-right', exiting,updateToast = ()=>{}} = props;
+    const {
+        id = '',
+        title='', 
+        desc='', 
+        onRemove, 
+        cta ='', 
+        type = 'info', 
+        position='top-right', 
+        exiting,updateToast = ()=>{}, 
+        progress = 100,
+    } = props;
 
 
     function handleRemove(){
@@ -42,7 +52,9 @@ function ToastNotification(props) {
             </div>
             {!!cta && <div className="toast-cta">{cta}</div>}
         </div>
-        <div className="toast-progress"></div>
+        <div 
+        style={{width: `${progress}%`}}
+        className="toast-progress"></div>
     </div>
   )
 }

@@ -7,12 +7,12 @@ import toastService from './toast-notification/ToastService'
 function App() {
   const [showToast, setShowToast] = useState(false)
 
-  const addNotification = useNotification()
+  //const addNotification = useNotification()
 
   function handleClick(){
     //setShowToast(!showToast)
     //addNotification({title:'first notification'})
-    toastService.sendToast({ title: "Hello!", type: "success" });
+    toastService.sendToast({ title: "Hello!", type: "info" });
   }
 
   return (
