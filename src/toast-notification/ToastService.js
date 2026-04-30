@@ -7,6 +7,7 @@ class ToastService {
 
     sendToast(data){
         if(this._sendNotification){
+            console.log('working')
             this._sendNotification(data)
         } else{
             console.error('no add toast notification')

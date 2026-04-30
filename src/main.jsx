@@ -8,7 +8,8 @@ import ToastProvider from './toast-notification/ToastProvider.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ToastProvider>
-    <App />
+
+    <App/>
     </ToastProvider>
   </StrictMode>,
 )

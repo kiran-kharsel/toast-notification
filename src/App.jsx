@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import './App.css'
 import {useNotification} from './toast-notification/ToastProvider'
+import toastService from './toast-notification/ToastService'
 
 function App() {
   const [showToast, setShowToast] = useState(false)
@@ -10,7 +11,8 @@ function App() {
 
   function handleClick(){
     //setShowToast(!showToast)
-    addNotification({title:'first notification'})
+    //addNotification({title:'first notification'})
+    toastService.sendToast({ title: "Hello!", type: "success" });
   }
 
   return (
